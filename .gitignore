@@ -1,0 +1,28 @@
+/.idea
+/.vscode
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/app/symfony/public/uploads/apply_to/images/
+/app/symfony/public/uploads/block/images/
+/app/symfony/public/uploads/catalogue/images/
+/app/symfony/public/uploads/formation/images/
+/app/symfony/public/uploads/media_testimonial/images/
+/app/symfony/public/uploads/media_testimonial/videos/
+/app/symfony/public/uploads/partner/images/
+/app/symfony/public/uploads/request_catalogue/images/
+/app/symfony/public/uploads/sample_formation/documents/
+/app/symfony/public/uploads/user/images/
+/src/preload.php
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
