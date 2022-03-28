@@ -1,0 +1,24 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="mb-3">
+                {{ form_row(form.status, {
+                    label: 'teacher.salle.form.status.name',
+                    attr: {
+                        'class': 'form-select',
+                        'placeholder': 'teacher.salle.form.status.placeholder'
+                    }
+                }) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+            </div>
+        </div>
+    </div>
+{{ form_end(form) }}
+

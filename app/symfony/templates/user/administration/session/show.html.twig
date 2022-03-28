@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+    <div class="content">
+        {% include 'components/head_navbar_custom.html.twig' %}
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <h4 class="page-title">Session</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title mb-3">Session</h4>
+
+                            <a href="{{ path('session_edit', {'id': session.id}) }}" class="btn btn-outline-secondary">Modifier</a>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-sm table-nowrap table-centered mb-0">
+                                    <tbody>
+                                    <tr>
+                                        <th>Id</th>
+                                        <td>{{ session.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Present</th>
+                                        <td>{{ session.present ? 'Oui' : 'Non' }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

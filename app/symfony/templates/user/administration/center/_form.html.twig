@@ -1,0 +1,73 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-md-12">
+        <div class="mb-3">
+            {{ form_row(form.name, {
+                label: 'administration.center.form.name.name',
+                attr: {
+                    'class': 'form-control',
+                    'placeholder': 'administration.center.form.name.placeholder'
+                }
+            }) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_row(form.address, {
+                label: 'administration.center.form.address.name',
+                attr: {
+                    'class': 'form-control',
+                    'placeholder': 'administration.center.form.address.placeholder'
+                }
+            }) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_row(form.city, {
+                label: 'administration.center.form.city.name',
+                attr: {
+                    'class': 'form-control',
+                    'placeholder': 'administration.center.form.city.placeholder'
+                }
+            }) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_row(form.codePostal, {
+                label: 'administration.center.form.codePostal.name',
+                attr: {
+                    'class': 'form-control',
+                    'placeholder': 'administration.center.form.codePostal.placeholder'
+                }
+            }) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_row(form.email, {
+                label: 'administration.center.form.email.name',
+                attr: {
+                    'class': 'form-control',
+                    'placeholder': 'administration.center.form.email.placeholder'
+                }
+            }) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_row(form.phone, {
+                label: 'administration.center.form.phone.name',
+                attr: {
+                    'class': 'form-control',
+                    'placeholder': 'administration.center.form.phone.placeholder'
+                }
+            }) }}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

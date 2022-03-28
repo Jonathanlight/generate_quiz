@@ -1,0 +1,73 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                {{ form_row(form.lastName, {
+                    label: 'administration.student.form.total.name',
+                    attr: {
+                        'class': 'form-control',
+                        'placeholder': 'administration.student.form.total.placeholder'
+                    }
+                }) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                {{ form_row(form.firstName, {
+                    label: 'administration.student.form.salle.name',
+                    attr: {
+                        'class': 'form-control',
+                        'placeholder': 'administration.student.form.salle.placeholder'
+                    }
+                }) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="mb-3">
+                {{ form_row(form.email, {
+                    label: 'administration.student.form.email.name',
+                    attr: {
+                        'class': 'form-control',
+                        'placeholder': 'administration.student.form.email.placeholder'
+                    }
+                }) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                {{ form_row(form.password.first, {
+                    label: 'administration.student.form.password.first.name',
+                    attr: {
+                        'class': 'form-control',
+                        'placeholder': 'administration.student.form.password.first.placeholder'
+                    }
+                }) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                {{ form_row(form.password.second, {
+                    label: 'administration.student.form.password.second.name',
+                    attr: {
+                        'class': 'form-control',
+                        'placeholder': 'administration.student.form.password.second.placeholder'
+                    }
+                }) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+            </div>
+        </div>
+    </div>
+{{ form_end(form) }}

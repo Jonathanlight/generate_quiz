@@ -1,0 +1,51 @@
+{% extends 'base_home.html.twig' %}
+
+{% block title %} {{ 'home.menu.apply_to'|trans }} {% endblock %}
+
+{% block body %}
+    <section class="hero-section" style="padding: unset;margin-bottom: 60px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <p>&nbsp;</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <h3></h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center mt-3">
+                {% for applyTo in applyTos %}
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-md-4">
+                                    <img src="{{ asset('assets/images/small/small-4.jpg') }}" class="card-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ applyTo.post.title }}</h5>
+                                        <p class="card-text">{{ applyTo.post.description|raw }}</p>
+                                        <p class="card-text">
+                                            <small class="text-muted">{{ applyTo.post.salary }}</small> |
+                                            <small class="text-muted">{{ applyTo.post.schedule }}</small> |
+                                            <small class="text-muted">{{ applyTo.post.jobStatus.name }}</small> |
+                                            <small class="text-muted">{{ applyTo.post.jobType.name }}</small>
+                                        </p>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end col -->
+                            </div> <!-- end row-->
+                        </div> <!-- end card-->
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

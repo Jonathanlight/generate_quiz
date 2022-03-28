@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %} {{ 'home.title'|trans }} {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="{{ 'home.description'|trans }}" name="description" />
+    <meta content="Coderthemes" name="author" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" id="light-style" />
+    <link href="{{ asset('assets/css/app-dark.min.css') }}" rel="stylesheet" type="text/css" id="dark-style" />
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+
+<body class="loading" data-layout-config='{"darkMode":false}'>
+
+<nav class="navbar navbar-expand-lg py-lg-3 navbar-dark">
+    <div class="container">
+
+        <!-- logo -->
+        <a href="{{ path('homepage') }}" class="navbar-brand me-lg-5">
+            <img src="{{ asset('assets/images/logo/logo_transparent_v2.png') }}" alt="" class="logo-dark" height="90" />
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="mdi mdi-menu"></i>
+        </button>
+
+        <!-- menus -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+            <!-- left menu -->
+            <ul class="navbar-nav me-auto align-items-center">
+{#                <li class="nav-item mx-lg-1">#}
+{#                    <a class="nav-link active" href="{{ path('homepage') }}">{{ 'home.menu.home'|trans }}</a>#}
+{#                </li>#}
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link" href="{{ path('homepage') }}">{{ 'home.menu.askJob'|trans }}</a>
+                </li>
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link" href="https://ressources-formation.fr/" target="_blank">{{ 'home.menu.rflearning'|trans }}</a>
+                </li>
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link" href="{{ path('homepage') }}">{{ 'home.menu.certification'|trans }}</a>
+                </li>
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link" href="{{ path('homepage') }}">{{ 'home.menu.sites'|trans }}</a>
+                </li>
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link" href="{{ path('apply_to') }}">{{ 'home.menu.apply_to'|trans }}</a>
+                </li>
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link" href="{{ path('contact') }}">{{ 'home.menu.contact'|trans }}</a>
+                </li>
+            </ul>
+
+            <!-- right menu -->
+            <ul class="navbar-nav ms-auto align-items-center">
+                {% if app.user %}
+                    {% if is_granted(constant('\\App\\Security\\Voter\\UserVoter::USER_VIEW'), app.user) %}
+                        <li class="nav-item me-0">
+                            <a href="{{ path('account') }}" class="btn btn-sm btn-light rounded-pill d-none d-lg-inline-flex ml-2">
+                                <i class="mdi mdi-account me-2"></i> {{ 'home.menu.user.profil'|trans }}
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if is_granted(constant('\\App\\Security\\Voter\\UserVoter::USER_VIEW'), app.user) %}
+                        <li class="nav-item me-0">
+                            <a href="{{ path('account') }}" class="btn btn-sm btn-light rounded-pill d-none d-lg-inline-flex ml-2">
+                                <i class="mdi mdi-account me-2"></i> {{ 'home.menu.user.profil'|trans }}
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if is_granted(constant('\\App\\Security\\Voter\\StudentVoter::STUDENT_VIEW'), app.user) %}
+                        <li class="nav-item me-0">
+                            <a href="{{ path('account') }}" class="btn btn-sm btn-light rounded-pill d-none d-lg-inline-flex ml-2">
+                                <i class="mdi mdi-account me-2"></i> {{ 'home.menu.user.profil'|trans }}
+                            </a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item me-0">
+                        <a href="{{ path('user_logout') }}" class="btn btn-sm btn-primary rounded-pill d-none d-lg-inline-flex">
+                            <i class="mdi mdi-logout me-2"></i> {{ 'home.menu.logout'|trans }}
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item me-0">
+                        <a href="{{ path('login') }}" class="btn btn-sm btn-light rounded-pill d-none d-lg-inline-flex ml-2">
+                            <i class="mdi mdi-account-box-multiple me-2"></i> {{ 'home.menu.login'|trans }}
+                        </a>
+                    </li>
+                    <li class="nav-item me-0">
+                        <a href="{{ path('register') }}" class="btn btn-sm btn-primary rounded-pill d-none d-lg-inline-flex">
+                            <i class="mdi mdi-account me-2"></i> {{ 'home.menu.register'|trans }}
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+{% block body %}{% endblock %}
+
+{% block footer %}
+    <footer class="bg-dark py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="{{ asset('assets/images/logo.png') }}" alt="" class="logo-dark" height="18" />
+
+                    <ul class="social-list list-inline mt-3">
+                        <li class="list-inline-item text-center">
+                            <a target="_blank" href="{{ 'home.network_social.facebook'|trans }}" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item text-center">
+                            <a target="_blank" href="{{ 'home.network_social.twitter'|trans }}" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                        </li>
+                        <li class="list-inline-item text-center">
+                            <a target="_blank" href="{{ 'home.network_social.linkedin'|trans }}" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-linkedin"></i></a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-2 mt-3 mt-lg-0">
+                    <ul class="list-unstyled ps-0 mb-0 mt-3">
+                        {% if pageBySlug('a_propos_de_nous') is not null %}
+                            <li class="mt-2"><a href="{{ path('page', {'slug': pageBySlug('a_propos_de_nous').slug }) }}" class="text-muted">{{ pageBySlug('a_propos_de_nous').title }}</a></li>
+                        {% endif %}
+                        {% if pageBySlug('cgv') is not null %}
+                            <li class="mt-2"><a href="{{ path('page', {'slug': pageBySlug('cgv').slug }) }}" class="text-muted">{{ pageBySlug('cgv').title }}</a></li>
+                        {% endif %}
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-2 mt-3 mt-lg-0">
+                    <ul class="list-unstyled ps-0 mb-0 mt-3">
+                        {% if pageBySlug('donnees_personnelles') is not null %}
+                            <li class="mt-2"><a href="{{ path('page', {'slug': pageBySlug('donnees_personnelles').slug }) }}" class="text-muted">{{ pageBySlug('donnees_personnelles').title }}</a></li>
+                        {% endif %}
+                        {% if pageBySlug('situation_handicap') is not null %}
+                            <li class="mt-2"><a href="{{ path('page', {'slug': pageBySlug('situation_handicap').slug }) }}" class="text-muted">{{ pageBySlug('situation_handicap').title }}</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 mt-3 mt-lg-0">
+                    <ul class="list-unstyled ps-0 mb-0 mt-3">
+                        {% if pageBySlug('mentions_legales') is not null %}
+                            <li class="mt-2"><a href="{{ path('page', {'slug': pageBySlug('mentions_legales').slug }) }}" class="text-muted">{{ pageBySlug('mentions_legales').title }}</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="mt-1">
+                        <p class="text-muted mt-4 text-center mb-0">{{ 'home.copyright'|trans }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+<script src="{{ asset('assets/js/vendor.min.js') }}"></script>
+<script src="{{ asset('assets/js/app.min.js') }}"></script>
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
+</html>

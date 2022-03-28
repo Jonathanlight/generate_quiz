@@ -1,0 +1,120 @@
+{% extends 'base_home.html.twig' %}
+
+{% block title %} {{ 'contact.title'|trans }} {% endblock %}
+
+{% block body %}
+    <section class="hero-section" style="padding: unset;margin-bottom: 60px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <p>&nbsp;</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <h3>{{ 'contact.us'|trans }} <span class="text-primary">{{ 'contact.title'|trans }}</span></h3>
+                        <p class="text-muted mt-2">{{ 'contact.description'|trans }}</p>
+                    </div>
+                </div>
+
+                {% include 'components/messageFlash.html.twig' %}
+            </div>
+
+            <div class="row align-items-center mt-3">
+                <div class="col-md-12">
+                    {{ form_start(form) }}
+                        <div class="row mt-4">
+                            <div class="col-lg-6">
+                                <div class="mb-2">
+                                    {{ form_row(form.lastName, {
+                                        label: 'contact.form.lastName.name',
+                                        attr: {
+                                            'class': 'form-control',
+                                            'placeholder': 'contact.form.lastName.placeholder'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-2">
+                                    {{ form_row(form.firstName, {
+                                        label: 'contact.form.firstName.name',
+                                        attr: {
+                                            'class': 'form-control',
+                                            'placeholder': 'contact.form.firstName.placeholder'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="row mt-4">
+                        <div class="col-lg-6">
+                            <div class="mb-2">
+                                {{ form_row(form.email, {
+                                    label: 'contact.form.email.name',
+                                    attr: {
+                                        'class': 'form-control',
+                                        'placeholder': 'contact.form.email.placeholder'
+                                    }
+                                }) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-2">
+                                {{ form_row(form.phone, {
+                                    label: 'contact.form.phone.name',
+                                    attr: {
+                                        'class': 'form-control',
+                                        'placeholder': 'contact.form.phone.placeholder'
+                                    }
+                                }) }}
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="row mt-1">
+                            <div class="col-lg-12">
+                                <div class="mb-2">
+                                    {{ form_row(form.object, {
+                                        label: 'contact.form.object.name',
+                                        attr: {
+                                            'class': 'form-control',
+                                            'placeholder': 'contact.form.object.placeholder'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-1">
+                            <div class="col-lg-12">
+                                <div class="mb-2">
+                                    {{ form_row(form.content, {
+                                        label: 'contact.form.content.name',
+                                        attr: {
+                                            'class': 'form-control',
+                                            'placeholder': 'contact.form.content.placeholder'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-12 text-end">
+                                <button class="btn btn-primary"> {{ 'contact.btn'|trans }}
+                                    <i class="mdi mdi-telegram ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

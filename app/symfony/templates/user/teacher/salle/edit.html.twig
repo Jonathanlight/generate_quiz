@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Salle{% endblock %}
+
+{% block body %}
+    <div class="content">
+        {% include 'components/head_navbar_custom.html.twig' %}
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <h4 class="page-title">Statut de la  Salle</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title mb-3">Statut de la  Salle</h4>
+
+                            <p class="text-center"><i class="fa fa-info-circle fa-2x text-danger"></i>
+                               <span class="text-danger">
+                                   Si le cours est terminé, Veuillez sélectionner ci-dessous
+                                   <strong class="text-danger">"statut end"</strong>
+                                   pour valider et envoyer.
+                               </span>
+                            </p>
+                            <hr>
+                            {{ include('user/teacher/salle/_form.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

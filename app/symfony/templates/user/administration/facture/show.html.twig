@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Facture{% endblock %}
+
+{% block body %}
+    <div class="content">
+        {% include 'components/head_navbar_custom.html.twig' %}
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <h4 class="page-title">Facture</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title mb-3">Facture</h4>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-sm table-nowrap table-centered mb-0">
+                                    <tbody>
+                                    <tr>
+                                        <th>Id</th>
+                                        <td>{{ facture.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>DATE</th>
+                                        <td>{{ facture.salle.createdAt|date('d-m-Y') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Formateur</th>
+                                        <td> {{ facture.salle.formation.teacher.name }}
+                                            <span class="text-danger"> - </span>
+                                            <a href="mailto:{{ facture.salle.formation.teacher.email }}" title="cliquez pour contacter {{ facture.salle.formation.teacher.email }}" target="_blank">
+                                                <i class="fa fa-envelope"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-warning text-dark">
+                                        <th>Formation</th>
+                                        <td>{{ facture.salle.formation.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Site</th>
+                                        <td>{{ facture.salle.siteformation.address }} {{ facture.salle.siteformation.codePostal }} {{ facture.salle.siteformation.city }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Salle</th>
+                                        <td>{{ facture.salle.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Effectif</th>
+                                        <td>{{ facture.salle.totalStaff }} apprenants </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nbre présents:</th>
+                                        <td>{{ facture.salle.totalPresence }} apprenants </td>
+                                    </tr>
+                                    <tr class="bg bg-success text-light">
+                                        <th>Total</th>
+                                        <td>{{ facture.total }}€</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

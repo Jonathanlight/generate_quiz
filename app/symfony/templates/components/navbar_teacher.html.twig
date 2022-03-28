@@ -1,0 +1,43 @@
+<div class="leftside-menu">
+    <a href="{{ path('homepage') }}" class="logo text-center logo-light">
+        <span class="logo-lg">
+            <img src="{{ asset('assets/images/logo.png') }}" alt="" height="16">
+        </span>
+        <span class="logo-sm">
+            <img src="{{ asset('assets/images/logo_sm.png') }}" alt="" height="16">
+        </span>
+    </a>
+
+    <a href="{{ path('homepage') }}" class="logo text-center logo-dark">
+        <span class="logo-lg">
+            <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="16">
+        </span>
+        <span class="logo-sm">
+            <img src="{{ asset('assets/images/logo_sm_dark.png') }}" alt="" height="16">
+        </span>
+    </a>
+
+    <div class="h-100" id="leftside-menu-container" data-simplebar>
+        <ul class="side-nav">
+            <li class="side-nav-title side-nav-item">{{ 'teacher.menu.sub.dashboard'|trans }}</li>
+
+            <li class="side-nav-item">
+                <a href="{{ path('teacher_home') }}" class="side-nav-link">
+                    <i class="uil-home-alt"></i>
+                    <span> {{ 'teacher.menu.dashboard'|trans }} </span>
+                </a>
+            </li>
+
+            <li class="side-nav-title side-nav-item">{{ 'teacher.menu.sub.application'|trans }}</li>
+
+            <li class="side-nav-item">
+                <a href="{{ path('teacher_salle_index') }}" class="side-nav-link">
+                    <i class="uil-layer-group"></i>
+                    <span> {{ 'teacher.menu.salle'|trans }} </span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="clearfix"></div>
+    </div>
+</div>

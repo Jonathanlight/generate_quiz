@@ -1,0 +1,45 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-md-12">
+        <div class="mb-3">
+            {{ form_row(form.name, {
+                label: 'administration.formation.form.name.name',
+                attr: {
+                    'class': 'form-control',
+                    'placeholder': 'administration.formation.form.name.placeholder'
+                }
+            }) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_row(form.taux, {
+                label: 'administration.formation.form.taux.name',
+                attr: {
+                    'class': 'form-control',
+                    'placeholder': 'administration.formation.form.taux.placeholder'
+                }
+            }) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_row(form.teacher, {
+                label: 'administration.formation.form.teacher.name',
+                attr: {
+                    'class': 'form-select',
+                    'placeholder': 'administration.formation.form.teacher.placeholder'
+                }
+            }) }}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}
+
+

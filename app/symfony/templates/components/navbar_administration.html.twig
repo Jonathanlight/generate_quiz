@@ -1,0 +1,85 @@
+<div class="leftside-menu">
+    <a href="{{ path('homepage') }}" class="logo text-center logo-light">
+        <span class="logo-lg">
+            <img src="{{ asset('assets/images/logo.png') }}" alt="" height="16">
+        </span>
+        <span class="logo-sm">
+            <img src="{{ asset('assets/images/logo_sm.png') }}" alt="" height="16">
+        </span>
+    </a>
+
+    <a href="{{ path('homepage') }}" class="logo text-center logo-dark">
+        <span class="logo-lg">
+            <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="16">
+        </span>
+        <span class="logo-sm">
+            <img src="{{ asset('assets/images/logo_sm_dark.png') }}" alt="" height="16">
+        </span>
+    </a>
+
+    <div class="h-100" id="leftside-menu-container" data-simplebar>
+        <ul class="side-nav">
+            <li class="side-nav-title side-nav-item">{{ 'administration.menu.sub.dashboard'|trans }}</li>
+
+            <li class="side-nav-item">
+                <a href="{{ path('administration_home') }}" class="side-nav-link">
+                    <i class="uil-home-alt"></i>
+                    <span> {{ 'administration.menu.dashboard'|trans }} </span>
+                </a>
+            </li>
+
+            <li class="side-nav-title side-nav-item">{{ 'administration.menu.sub.application'|trans }}</li>
+
+            <li class="side-nav-item">
+                <a href="{{ path('formation_index') }}" class="side-nav-link">
+                    <i class="uil-layer-group"></i>
+                    <span> {{ 'administration.menu.formation'|trans }} </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{ path('salle_index') }}" class="side-nav-link">
+                    <i class="uil-layer-group"></i>
+                    <span> {{ 'administration.menu.salle'|trans }} </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{ path('session_index') }}" class="side-nav-link">
+                    <i class="uil-layer-group"></i>
+                    <span> {{ 'administration.menu.session'|trans }} </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{ path('center_index') }}" class="side-nav-link">
+                    <i class="uil-layer-group"></i>
+                    <span> {{ 'administration.menu.center'|trans }} </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{ path('facture_index') }}" class="side-nav-link">
+                    <i class="uil-layer-group"></i>
+                    <span> {{ 'administration.menu.facture'|trans }} </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{ path('teacher_index') }}" class="side-nav-link">
+                    <i class="uil-layer-group"></i>
+                    <span> {{ 'administration.menu.teacher'|trans }} </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{ path('student_index') }}" class="side-nav-link">
+                    <i class="uil-layer-group"></i>
+                    <span> {{ 'administration.menu.student'|trans }} </span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="clearfix"></div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification: Formateur | Professeur{% endblock %}
+
+{% block body %}
+    <div class="content">
+        {% include 'components/head_navbar_custom.html.twig' %}
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <h4 class="page-title">Ajouter un Formateur</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title mb-3">Ajouter un Formateur</h4>
+
+                            {{ include('user/administration/teacher/_form.html.twig', {'button_label': 'Modifier'}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

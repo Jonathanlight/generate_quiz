@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Salles{% endblock %}
+
+{% block body %}
+    <div class="content">
+        {% include 'components/head_navbar_custom.html.twig' %}
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <h4 class="page-title">Salles</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title mb-3">Salles</h4>
+
+                            <div class="table-responsive">
+                                <a href="{{ path('salle_new') }}" class="btn btn-outline-danger mb-2">Créer une nouvelle salle</a>
+
+                                <table class="table table-striped table-sm table-nowrap table-centered mb-0">
+                                    <thead class="table-primary">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>NomSalle</th>
+                                        <th>Formateur</th>
+                                        <th>Formation</th>
+                                        <th>Date</th>
+                                        <th>Total Presence</th>
+                                        <th>Total Effectif</th>
+                                        <th>Statut</th>
+                                        <th>actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for salle in salles %}
+                                        <tr>
+                                            <td>{{ salle.id }}</td>
+                                            <td class="table-danger">{{ salle.name }}</td>
+                                            <td>{{ salle.formation.teacher }}</td>
+                                            <td class="table-warning">{{ salle.formation.name }}</td>
+                                            <td>{{ salle.createdAt ? salle.createdAt|date('d-m-Y ') : '' }}</td>
+                                            <td class="table-success">{{ salle.totalPresence }}</td>
+                                            <td class="table-danger">{{ salle.totalStaff }}</td>
+                                            <td class="table-warning">{{ salle.status }}</td>
+                                            <td>
+                                                <a href="{{ path('salle_show', {'id': salle.id}) }}" class="btn btn-outline-secondary"><i class="mdi mdi-eye me-1"></i></a>
+                                                <a href="{{ path('salle_edit', {'id': salle.id}) }}" class="btn btn-outline-danger"><i class="mdi mdi-account-edit me-1"></i></a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="6">no records found</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
