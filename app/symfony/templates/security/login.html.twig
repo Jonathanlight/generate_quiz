@@ -1,78 +1,56 @@
-{% extends 'security/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block title %} {{ 'login.title'|trans }} {% endblock %}
+{% block title %} Connexion {% endblock %}
 
 {% block body %}
-    <div class="auth-fluid auth-fluid-login">
-        <div class="auth-fluid-form-box">
-            <div class="align-items-center d-flex h-100">
-                <div class="card-body">
-                    <div class="auth-brand text-center text-lg-start">
-                        <a href="{{ path('homepage') }}" class="logo-dark">
-                            <span><img src="{{ asset('assets/images/logo/logo_transparent_bleu_min.png') }}" alt="" height="70"></span>
-                        </a>
 
-                        <a href="{{ path('homepage') }}" class="logo-light">
-                            <span><img src="{{ asset('assets/images/logo/logo_transparent_bleu_min.png') }}" alt="" height="18"></span>
-                        </a>
+    <div class="container">
+
+        {{ include('components/messageFlash.html.twig') }}
+
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_start(form) }}
+                    {% if csrf_token('authenticate') %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+                    {% endif %}
+
+                    <div class="mb-3">
+                        {{ form_row(form._username, {
+                            label: 'login.form._username.name',
+                            attr: {
+                                'class': 'form-control',
+                                'placeholder': 'login.form._username.placeholder'
+                            }
+                        }) }}
                     </div>
 
-                    <h4 class="mt-0 text-center">{{ 'login.title'|trans }}</h4>
+                    <div class="mb-3">
+                        <a href="#" class="text-muted float-end">
+                            <small>
+                                {{ 'login.passwordForgetInfo'|trans }}
+                            </small>
+                        </a>
+                        {{ form_row(form._password, {
+                            label: 'login.form._password.name',
+                            attr: {
+                                'class': 'form-control',
+                                'placeholder': 'login.form._password.placeholder'
+                            }
+                        }) }}
+                    </div>
 
-                    {% include 'components/messageFlash.html.twig' %}
-
-                    <p class="text-muted mb-4">
-                        {{ 'login.description'|trans }}
-                    </p>
-
-                    {{ form_start(form) }}
-
-                        {% if csrf_token('authenticate') %}
-                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
-                        {% endif %}
-
-                        <div class="mb-3">
-                            {{ form_row(form._username, {
-                                label: 'login.form._username.name',
-                                attr: {
-                                    'class': 'form-control',
-                                    'placeholder': 'login.form._username.placeholder'
-                                }
-                            }) }}
-                        </div>
-                        <div class="mb-3">
-                            <a href="#" class="text-muted float-end">
-                                <small>
-                                    {{ 'login.passwordForgetInfo'|trans }}
-                                </small>
-                            </a>
-                            {{ form_row(form._password, {
-                                label: 'login.form._password.name',
-                                attr: {
-                                    'class': 'form-control',
-                                    'placeholder': 'login.form._password.placeholder'
-                                }
-                            }) }}
-                        </div>
-
-                        <div class="d-grid mb-0 text-center">
-                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-login"></i> {{ 'login.btn'|trans }} </button>
-                        </div>
-                    {{ form_end(form) }}
-
-                    <footer class="footer footer-alt">
-                        <p class="text-muted"> {{ 'login.footer.content'|trans }}
-                            <a href="{{ path('register') }}" class="text-muted ms-1">
-                                <b>{{ 'login.footer.link'|trans }}</b>
-                            </a>
-                        </p>
-                    </footer>
-                </div>
+                    <div class="d-grid mb-0 text-center">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="mdi mdi-login"></i> {{ 'login.btn'|trans }}
+                        </button>
+                    </div>
+                {{ form_end(form) }}
             </div>
-        </div>
 
-        <div class="auth-fluid-right text-center">
-            <div class="auth-user-testimonial"></div>
+            <div class="col-md-6">
+                <img src="{{ asset('assets/images/login-img.webp') }}" class="img-fluid">
+            </div>
         </div>
     </div>
 {% endblock %}

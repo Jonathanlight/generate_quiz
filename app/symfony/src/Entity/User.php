@@ -44,25 +44,30 @@ class User implements UserInterface
     private $quizes;
 
     /**
-     * @ORM\OneToMany(targetEntity=Mark::class, mappedBy="user")
-     */
-    private $marks;
-
-    /**
      * @ORM\OneToMany(targetEntity=AnswerUser::class, mappedBy="user")
      */
     private $answerUsers;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Session::class, mappedBy="user")
+     */
+    private $sessions;
+
     public function __construct()
     {
         $this->quizes = new ArrayCollection();
-        $this->marks = new ArrayCollection();
         $this->answerUsers = new ArrayCollection();
+        $this->sessions = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function __toString()
+    {
+        return (string) ucfirst($this->getEmail());
     }
 
     /**
@@ -96,36 +101,6 @@ class User implements UserInterface
     }
 
     /**
-     * @return Collection<int, Mark>
-     */
-    public function getMarks(): Collection
-    {
-        return $this->marks;
-    }
-
-    public function addMark(Mark $mark): self
-    {
-        if (!$this->marks->contains($mark)) {
-            $this->marks[] = $mark;
-            $mark->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMark(Mark $mark): self
-    {
-        if ($this->marks->removeElement($mark)) {
-            // set the owning side to null (unless already changed)
-            if ($mark->getUser() === $this) {
-                $mark->setUser(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, AnswerUser>
      */
     public function getAnswerUsers(): Collection
@@ -149,6 +124,36 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($answerUser->getUser() === $this) {
                 $answerUser->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Session>
+     */
+    public function getSessions(): Collection
+    {
+        return $this->sessions;
+    }
+
+    public function addSession(Session $session): self
+    {
+        if (!$this->sessions->contains($session)) {
+            $this->sessions[] = $session;
+            $session->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSession(Session $session): self
+    {
+        if ($this->sessions->removeElement($session)) {
+            // set the owning side to null (unless already changed)
+            if ($session->getUser() === $this) {
+                $session->setUser(null);
             }
         }
 

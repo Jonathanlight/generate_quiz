@@ -1,107 +1,88 @@
-{% extends 'security/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %} {{ 'register.title'|trans }} {% endblock %}
 
 {% block body %}
-    <div class="auth-fluid auth-fluid-register">
-        <div class="auth-fluid-form-box">
-            <div class="align-items-center d-flex h-100">
-                <div class="card-body">
-                    <div class="auth-brand text-center text-lg-start">
-                        <a href="{{ path('homepage') }}" class="logo-dark">
-                            <span><img src="{{ asset('assets/images/logo/logo_transparent_bleu_min.png') }}" alt="" height="78"></span>
-                        </a>
+    <div class="container">
 
-                        <a href="{{ path('homepage') }}" class="logo-light">
-                            <span><img src="{{ asset('assets/images/logo/logo_transparent_bleu_min.png') }}" alt="" height="78"></span>
-                        </a>
-                    </div>
+        {{ include('components/messageFlash.html.twig') }}
 
-                    <h4 class="mt-5 text-center">{{ 'register.title'|trans }}</h4>
-
-                    {{ form_start(form) }}
-                    <div class="mb-3">
-                        {{ form_row(form.gender, {
-                            label: 'register.form.gender.name',
-                            attr: {
-                                'class': 'form-select mb-3',
-                            }
-                        }) }}
-                    </div>
-                    <div class="mb-3">
-                        {{ form_row(form.lastName, {
-                            label: 'register.form.lastName.name',
-                            attr: {
-                                'class': 'form-control',
-                                'placeholder': 'register.form.lastName.placeholder'
-                            }
-                        }) }}
-                    </div>
-                    <div class="mb-3">
-                        {{ form_row(form.firstName, {
-                            label: 'register.form.firstName.name',
-                            attr: {
-                                'class': 'form-control',
-                                'placeholder': 'register.form.firstName.placeholder'
-                            }
-                        }) }}
-                    </div>
-                    <div class="mb-3">
-                        {{ form_row(form.email, {
-                            label: 'register.form.email.name',
-                            attr: {
-                                'class': 'form-control',
-                                'placeholder': 'register.form.email.placeholder'
-                            }
-                        }) }}
-                    </div>
-                    <div class="mb-3">
-                        {{ form_row(form.password.first, {
-                            label: 'register.form.password.first.name',
-                            attr: {
-                                'class': 'form-control',
-                                'placeholder': 'register.form.password.first.placeholder'
-                            }
-                        }) }}
-                    </div>
-                    <div class="mb-3">
-                        {{ form_row(form.password.second, {
-                            label: 'register.form.password.second.name',
-                            attr: {
-                                'class': 'form-control',
-                                'placeholder': 'register.form.password.second.placeholder'
-                            }
-                        }) }}
-                    </div>
-
-                    <div class="form-check mb-3">
-                        {{ form_row(form.hasValidatedCGU, {
-                            label: 'register.form.hasValidatedCGU.name',
-                            attr: {
-                                'class': 'form-check-input',
-                                'placeholder': 'register.form.hasValidatedCGU.placeholder'
-                            }
-                        }) }}
-                    </div>
-
-                    <div class="d-grid mb-0 text-center">
-                        <button class="btn btn-primary" type="submit"><i class="mdi mdi-login"></i> {{ 'register.btn'|trans }} </button>
-                    </div>
-                    {{ form_end(form) }}
-
-                    <footer class="footer footer-alt">
-                        <p class="text-muted"> {{ 'register.footer.content'|trans }}
-                            <a href="{{ path('login') }}" class="text-muted ms-1">
-                                <b>{{ 'register.footer.link'|trans }}</b>
-                            </a>
-                        </p>
-                    </footer>
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_start(form) }}
+                <div class="mb-3">
+                    {{ form_row(form.gender, {
+                        label: 'register.form.gender.name',
+                        attr: {
+                            'class': 'form-select mb-3',
+                        }
+                    }) }}
                 </div>
-            </div>
-        </div>
+                <div class="mb-3">
+                    {{ form_row(form.lastName, {
+                        label: 'register.form.lastName.name',
+                        attr: {
+                            'class': 'form-control',
+                            'placeholder': 'register.form.lastName.placeholder'
+                        }
+                    }) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_row(form.firstName, {
+                        label: 'register.form.firstName.name',
+                        attr: {
+                            'class': 'form-control',
+                            'placeholder': 'register.form.firstName.placeholder'
+                        }
+                    }) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_row(form.email, {
+                        label: 'register.form.email.name',
+                        attr: {
+                            'class': 'form-control',
+                            'placeholder': 'register.form.email.placeholder'
+                        }
+                    }) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_row(form.password.first, {
+                        label: 'register.form.password.first.name',
+                        attr: {
+                            'class': 'form-control',
+                            'placeholder': 'register.form.password.first.placeholder'
+                        }
+                    }) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_row(form.password.second, {
+                        label: 'register.form.password.second.name',
+                        attr: {
+                            'class': 'form-control',
+                            'placeholder': 'register.form.password.second.placeholder'
+                        }
+                    }) }}
+                </div>
 
-        <div class="auth-fluid-right text-center">
-            <div class="auth-user-testimonial"></div>
+                <div class="form-check mb-3">
+                    {{ form_row(form.hasValidatedCGU, {
+                        label: 'register.form.hasValidatedCGU.name',
+                        attr: {
+                            'class': 'form-check-input',
+                            'placeholder': 'register.form.hasValidatedCGU.placeholder'
+                        }
+                    }) }}
+                </div>
+
+                <div class="d-grid mb-0 text-center">
+                    <button class="btn btn-primary" type="submit"><i class="mdi mdi-login"></i> {{ 'register.btn'|trans }} </button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+
+            <div class="col-md-6">
+                <img src="{{ asset('assets/images/login-img.webp') }}" class="img-fluid">
+            </div>
         </div>
     </div>
 {% endblock %}

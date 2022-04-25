@@ -32,6 +32,11 @@ class AnswerUser
      */
     private $question;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Session::class, inversedBy="answerUsers")
+     */
+    private $session;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class AnswerUser
     public function setQuestion(?Question $question): self
     {
         $this->question = $question;
+
+        return $this;
+    }
+
+    public function getSession(): ?Session
+    {
+        return $this->session;
+    }
+
+    public function setSession(?Session $session): self
+    {
+        $this->session = $session;
 
         return $this;
     }

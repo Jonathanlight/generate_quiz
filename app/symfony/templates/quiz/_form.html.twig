@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+    <div class="row mb-3">
+        <div class="col-md-6">
+            {{ form_row(form.name) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.theme) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-secondary btn-block" href="{{ path('app_quiz_index') }}">Retour</a>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary btn-block">{{ button_label|default('Valider') }}</button>
+        </div>
+    </div>
+{{ form_end(form) }}

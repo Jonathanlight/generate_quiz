@@ -321,7 +321,9 @@ class UserManager
         $pass = $this->passwordService->encode($user, $user->getPassword());
         $user->setPassword($pass);
         $user->setReference($this->referenceFormat());
-        $user->setValidated(0);
+        $user->setValidated(1);
+        $user->setState(1);
+        $user->setActive(1);
         $this->em->persist($user);
         $this->em->flush();
 
@@ -374,10 +376,6 @@ class UserManager
      */
     public function redirectionAuth($user)
     {
-        if (User::ROLE_ADMIN === $user->getRole()) {
-            return new RedirectResponse($this->urlGenerator->generate('admin_home'));
-        }
-
-        return new RedirectResponse($this->urlGenerator->generate('student_home'));
+        return new RedirectResponse($this->urlGenerator->generate('app_user_session'));
     }
 }

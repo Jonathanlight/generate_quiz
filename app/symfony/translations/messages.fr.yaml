@@ -1,0 +1,133 @@
+action.edit: Editer
+action.delete: Supprimer
+action.search: 'Rechercher ...'
+action.detail: Détail
+action.new: Ajouter
+action.list: 'Retour à la liste'
+action.save: Enregistrer
+action.cancel: Annuler
+action.show: Visualiser
+action.login: 'Se connecter'
+app.message.flash.contact_success: 'Votre message à bien été envoyé avec succès.'
+home.title: Accueil
+home.description: ''
+home.keyword: ''
+home.copyright: '© Tous droits réservés: Ressources Formation - 2022'
+home.network_social.facebook: 'https://facebook.com/RessourcesF'
+home.network_social.twitter: 'https://twitter.com/RessourcesF'
+home.network_social.linkedin: 'https://www.linkedin.com/company/ressources-formation'
+home.menu.home: Accueil
+home.menu.askJob: Formations
+home.menu.rflearning: 'Rf learning'
+home.menu.certification: Certification
+home.menu.sites: 'Nos sites'
+home.menu.apply_to: 'Nos offres'
+home.menu.contact: Contact
+home.menu.login: 'Se connecter'
+home.menu.logout: 'Se déconnecter'
+home.menu.register: 'S''inscrire'
+home.menu.user.profil: 'Mon compte'
+user.account.avatar: Avatar
+user.account.cv: CV
+user.account.motivation_letter: 'Lettre de motivation'
+administration.title: Administration
+administration.description: ''
+administration.keyword: ''
+administration.menu.sub.dashboard: 'Tableau de bord'
+administration.menu.sub.application: Applications
+administration.menu.dashboard: 'Tableau de bord'
+administration.menu.formation: Formation
+administration.menu.salle: Salle
+administration.menu.session: Session
+administration.menu.center: 'Centre formation'
+administration.menu.facture: Facture
+administration.menu.teacher: Teacher
+administration.menu.student: Student
+teacher.title: Professeur
+teacher.description: ''
+teacher.keyword: ''
+teacher.menu.sub.dashboard: 'Tableau de bord'
+teacher.menu.sub.application: Applications
+teacher.menu.dashboard: 'Tableau de bord'
+teacher.menu.session: Session
+teacher.menu.salle: Salle
+student.title: Etudiant
+student.description: ''
+student.keyword: ''
+student.menu.sub.dashboard: 'Tableau de bord'
+student.menu.sub.application: Applications
+student.menu.dashboard: 'Tableau de bord'
+student.menu.session: Session
+student.menu.formation: Formation
+student.menu.salle: Salle
+login.title: Connexion
+login.btn: 'Se Connecter'
+login.description: 'Entrer votre email et mot de passe pour accéder à votre session'
+login.passwordForgetInfo: 'Mot de passe oublié ?'
+login.form._username.name: Email
+login.form._username.placeholder: Email
+login.form._password.name: 'Mot de passe'
+login.form._password.placeholder: 'Veillez saisir votre mot de passe'
+login.footer.content: 'Avez-vous un compte ?'
+login.footer.link: 'S''inscrire'
+register.title: Inscription
+register.btn: 'S''inscrire'
+register.description: 'Entrer votre email et mot de passe pour accéder à votre session'
+register.passwordForgetInfo: 'Mot de passe oublié ?'
+register.form.gender.name: 'Sélectionnez votre genre'
+register.form.gender.man: Homme
+register.form.gender.woman: Femme
+register.form.lastName.name: Nom
+register.form.lastName.placeholder: 'Veillez saisir votre nom'
+register.form.firstName.name: Prénom
+register.form.firstName.placeholder: 'Veillez saisir votre prénom'
+register.form.email.name: Email
+register.form.email.placeholder: 'Veillez saisir votre email'
+register.form.password.first.name: 'Mot de passe'
+register.form.password.first.placeholder: 'Veillez saisir votre mot de passe'
+register.form.password.second.name: 'Confirmation de votre mot de passe'
+register.form.password.second.placeholder: 'Veillez confirmer votre mot de passe'
+register.form.hasValidatedCGU.name: 'Confirmer les condition générale d''utilisation'
+register.form.hasValidatedCGU.placeholder: 'Condition générale d''utilisation'
+register.footer.content: 'Si vous avez déjà un compte ?'
+register.footer.link: 'Se connecter'
+contact.title: Contact
+contact.us: Nous
+contact.btn: 'Envoyer votre Message'
+contact.description: 'Merci de nous contactez pour plus d''information.'
+contact.form.lastName.name: Nom
+contact.form.lastName.placeholder: 'Veillez saisir votre nom'
+contact.form.firstName.name: Prénom
+contact.form.firstName.placeholder: 'Veillez saisir votre prénom'
+contact.form.email.name: Email
+contact.form.email.placeholder: 'Veillez saisir votre email'
+contact.form.phone.name: Numéro
+contact.form.phone.placeholder: 'Veillez saisir votre numéro'
+contact.form.object.name: Objet
+contact.form.object.placeholder: 'Objet du message'
+contact.form.content.name: Contenu
+contact.form.content.placeholder: 'Veillez saisir votre contenu'
+user.account.job: Activité
+save.btn: Valider
+user.account.email.update: 'Adresse mail'
+login.form.email.placeholder: 'Adresse mail'
+login.form.email.name: 'Votre mail'
+user.account.password.update: 'Nouveau mot de passe'
+login.form.password.name: 'Mot de passe'
+login.form.password.placeholder: 'Votre mot de passe'
+form.filter.domaine: 'Faire la Recherche par domaine'
+form.filter.region: 'Faire la Recherche par région'
+enum.region.Auvergne-Rhône-Alpes: Auvergne-Rhône-Alpes
+enum.region.Bourgogne-Franche-Comté: Bourgogne-Franche-Comté
+'enum.region.Grand Est': 'Grand Est'
+'enum.region.Provence-Alpes-Côte d''Azur': 'Provence-Alpes-Côte d''Azur'
+enum.region.Bretagne: Bretagne
+'enum.region.Pays de la Loire': 'Pays de la Loire'
+enum.region.Nouvelle-Aquitaine: Nouvelle-Aquitaine
+'enum.region.Centre-Val de Loire': 'Centre-Val de Loire'
+enum.region.Normandie: Normandie
+enum.region.Occitanie: Occitanie
+enum.region.Île-de-France: Île-de-France
+enum.region.Hauts-de-France: Hauts-de-France
+enum.region.Corse: Corse
+option.choice.content: 'Créer un choix '

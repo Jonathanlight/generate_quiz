@@ -1,0 +1,149 @@
+action:
+    login: 'Se connecter'
+
+app:
+    message:
+        flash:
+            contact_success: 'Votre message à bien été envoyé avec succès.'
+
+home:
+    title: 'Accueil'
+    description: ''
+    keyword: ''
+    copyright: '© Tous droits réservés: Ressources Formation - 2022'
+    network_social:
+        facebook: 'https://facebook.com/RessourcesF'
+        twitter: 'https://twitter.com/RessourcesF'
+        linkedin: 'https://www.linkedin.com/company/ressources-formation'
+    menu:
+        home: 'Accueil'
+        askJob: 'Demande d''emploi'
+        certification: 'Certification'
+        contact: 'Contact'
+        login: 'Se connecter'
+        logout: 'Se déconnecter'
+        register: "S'inscrire"
+        user:
+            profil: 'My Account'
+
+user:
+    account:
+        avatar: 'Avatar'
+        cv: 'CV'
+        motivation_letter: 'Lettre de motivation'
+
+administration:
+    title: 'Administration'
+    description: ''
+    keyword: ''
+    menu:
+        sub:
+            dashboard: 'Tableau de bord'
+            application: 'Applications'
+        dashboard: 'Tableau de bord'
+        formation: 'Formation'
+        salle: 'Salle'
+        session: 'Session'
+        center: 'Centre formation'
+        facture: 'Facture'
+        teacher: 'Teacher'
+        student: 'Student'
+
+teacher:
+    title: 'Professeur'
+    description: ''
+    keyword: ''
+    menu:
+        sub:
+            dashboard: 'Tableau de bord'
+            application: 'Applications'
+        dashboard: 'Tableau de bord'
+        session: 'Session'
+        salle: 'Salle'
+
+student:
+   title: 'Étudiant'
+   description: ''
+   keyword: ''
+   menu:
+       sub:
+           dashboard: 'Tableau de bord'
+           application: 'Applications'
+       dashboard: 'Tableau de bord'
+       session: 'Session'
+       formation: 'Formation'
+       salle: 'Salle'
+
+login:
+    title: 'Connexion'
+    btn: 'Se Connecter'
+    description: 'Entrer votre email et mot de passe pour accéder à votre session'
+    passwordForgetInfo: 'Mot de passe oublié ?'
+    form:
+        _username:
+            name: 'Email'
+            placeholder: 'Email'
+        _password:
+            name: 'Mot de passe'
+            placeholder: 'Veillez saisir votre mot de passe'
+    footer:
+        content: 'Avez-vous un compte ?'
+        link: 'S''inscrire'
+
+register:
+    title: 'Inscription'
+    btn: 'S''inscrire'
+    description: 'Entrer votre email et mot de passe pour acceder à votre session'
+    passwordForgetInfo: 'Mot de passe oublié ?'
+    form:
+        gender:
+            name: 'Sélectionnez votre genre'
+            man: 'Homme'
+            woman: 'Femme'
+        lastName:
+            name: 'Nom'
+            placeholder: 'Veillez saisir votre nom'
+        firstName:
+            name: 'Prénom'
+            placeholder: 'Veillez saisir votre prénom'
+        email:
+            name: 'Email'
+            placeholder: 'Veillez saisir votre email'
+        password:
+            first:
+                name: 'Mot de passe'
+                placeholder: 'Veillez saisir votre mot de passe'
+            second:
+                name: 'Confirmation de votre mot de passe'
+                placeholder: 'Veillez confirmer votre mot de passe'
+        hasValidatedCGU:
+            name: 'Confirmer les condition générale d''utilisation'
+            placeholder: 'Condition générale d''utilisation'
+    footer:
+        content: 'Si vous avez déjà un compte ?'
+        link: 'Se connecter'
+
+contact:
+    title: 'Contact'
+    us: 'Nous'
+    btn: 'Envoyer votre Message'
+    description: 'Merci de nous contactez pour plus d''information.'
+    form:
+        lastName:
+            name: 'Nom'
+            placeholder: 'Veillez saisir votre nom'
+        firstName:
+            name: 'Prénom'
+            placeholder: 'Veillez saisir votre prénom'
+        email:
+            name: 'Email'
+            placeholder: 'Veillez saisir votre email'
+        phone:
+            name: 'Numéro'
+            placeholder: 'Veillez saisir votre numéro'
+        object:
+            name: 'Objet'
+            placeholder: 'Objet du message'
+        content:
+            name: 'Contenu'
+            placeholder: 'Veillez saisir votre contenu'

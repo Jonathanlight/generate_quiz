@@ -34,7 +34,7 @@ trait UserInfoTrait
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
-     * @Assert\Length(min=6)
+     * @Assert\Length(min=3)
      */
     private $password;
 

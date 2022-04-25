@@ -1,0 +1,49 @@
+{% extends 'base_dashboard.html.twig' %}
+
+{% block title %}Question{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Question {{ question.id }} : </th>
+                <td>{{ question.content }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {{ form_start(formChoice) }}
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form_row(formChoice.content) }}
+                <a href="{{ path('app_quiz_show', {'id': question.quiz.id}) }}" class="btn btn-secondary btn-block mt-2">Retour</a>
+                <button type="submit" class="btn btn-primary btn-block mt-2">{{ button_label|default('Valider') }}</button>
+            </div>
+
+            <div class="col-md-6">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th>Choix</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for choice in choices %}
+                            <tr>
+                                <td><i class="fa fa-question btn btn-secondary"></i> {{ choice.content|capitalize }}</td>
+                                <td>
+                                    <div>
+                                        <a href="{{ path('app_option_choice_delete', {'id': choice.id}) }}">
+                                            <span class="btn btn-danger">Supprimer</span>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {{ form_end(formChoice) }}
+{% endblock %}

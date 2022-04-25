@@ -1,0 +1,26 @@
+{% extends 'base_dashboard.html.twig' %}
+
+{% block title %}OptionChoice{% endblock %}
+
+{% block body %}
+    <h1>OptionChoice</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ option_choice.id }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ option_choice.content }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_option_choice_index') }}">back to list</a>
+
+    <a href="{{ path('app_option_choice_edit', {'id': option_choice.id}) }}">edit</a>
+
+    {{ include('option_choice/_delete_form.html.twig') }}
+{% endblock %}

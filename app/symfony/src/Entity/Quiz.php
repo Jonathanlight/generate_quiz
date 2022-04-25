@@ -40,14 +40,19 @@ class Quiz
     private $questions;
 
     /**
-     * @ORM\OneToMany(targetEntity=Mark::class, mappedBy="quiz")
+     * @ORM\OneToMany(targetEntity=Session::class, mappedBy="quiz")
      */
-    private $marks;
+    private $sessions;
 
     public function __construct()
     {
         $this->questions = new ArrayCollection();
-        $this->marks = new ArrayCollection();
+        $this->sessions = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return (string) ucfirst($this->getName());
     }
 
     public function getId(): ?int
@@ -122,29 +127,29 @@ class Quiz
     }
 
     /**
-     * @return Collection<int, Mark>
+     * @return Collection<int, Session>
      */
-    public function getMarks(): Collection
+    public function getSessions(): Collection
     {
-        return $this->marks;
+        return $this->sessions;
     }
 
-    public function addMark(Mark $mark): self
+    public function addSession(Session $session): self
     {
-        if (!$this->marks->contains($mark)) {
-            $this->marks[] = $mark;
-            $mark->setQuiz($this);
+        if (!$this->sessions->contains($session)) {
+            $this->sessions[] = $session;
+            $session->setQuiz($this);
         }
 
         return $this;
     }
 
-    public function removeMark(Mark $mark): self
+    public function removeSession(Session $session): self
     {
-        if ($this->marks->removeElement($mark)) {
+        if ($this->sessions->removeElement($session)) {
             // set the owning side to null (unless already changed)
-            if ($mark->getQuiz() === $this) {
-                $mark->setQuiz(null);
+            if ($session->getQuiz() === $this) {
+                $session->setQuiz(null);
             }
         }
 

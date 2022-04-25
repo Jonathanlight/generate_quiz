@@ -70,11 +70,7 @@ class UserLoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
         $user = $token->getUser();
 
-        if (User::ROLE_ADMIN === $user->getRole()) {
-            return new RedirectResponse($this->urlGenerator->generate('administration_home'));
-        }
-
-        return new RedirectResponse($this->urlGenerator->generate('student_home'));
+        return new RedirectResponse($this->urlGenerator->generate('app_user_session'));
     }
 
     protected function getLoginUrl(Request $request): string

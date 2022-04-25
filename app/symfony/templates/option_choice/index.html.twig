@@ -1,0 +1,35 @@
+{% extends 'base_dashboard.html.twig' %}
+
+{% block title %}OptionChoice index{% endblock %}
+
+{% block body %}
+    <h1>OptionChoice index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Content</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for option_choice in option_choices %}
+            <tr>
+                <td>{{ option_choice.id }}</td>
+                <td>{{ option_choice.content }}</td>
+                <td>
+                    <a href="{{ path('app_option_choice_show', {'id': option_choice.id}) }}">show</a>
+                    <a href="{{ path('app_option_choice_edit', {'id': option_choice.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_option_choice_new') }}">Create new</a>
+{% endblock %}

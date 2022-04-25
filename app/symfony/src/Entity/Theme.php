@@ -34,6 +34,11 @@ class Theme
         $this->quizzes = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return (string) ucfirst($this->getName());
+    }
+
     public function getId(): ?int
     {
         return $this->id;

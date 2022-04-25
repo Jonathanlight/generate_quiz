@@ -1,0 +1,162 @@
+{% extends 'base_dashboard.html.twig' %}
+
+{% block title %}{{app.user.name}}{% endblock %}
+
+{% block body %}
+    <div class="content">
+
+        {% include 'components/head_navbar_custom.html.twig' %}
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <h4 class="page-title">Mon compte</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    {% include 'components/messageFlash.html.twig' %} <!-- Message Flash -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-xl-6">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-12">
+
+                                    <h3> {{ 'user.account.job'|trans }} </h3>
+                                    <hr>
+
+                                    {{ form_start(formAvatar) }}
+                                    <div class="mb-3">
+                                        <div class="vich-file">
+                                            {{ form_row(formAvatar.avatarFile, {
+                                                attr: {
+                                                    'class': 'form-control'
+                                                }
+                                            }) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="vich-file">
+                                            {{ form_row(formAvatar.cvFile, {
+                                                attr: {
+                                                    'class': 'form-control'
+                                                }
+                                            }) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="vich-file">
+                                            {{ form_row(formAvatar.motivationLetterFile, {
+                                                attr: {
+                                                    'class': 'form-control'
+                                                }
+                                            }) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="d-grid mb-0 text-center">
+                                        <button class="btn btn-primary" type="submit">
+                                            <i class="mdi mdi-login"></i>
+                                            {{ 'save.btn'|trans }}
+                                        </button>
+                                    </div>
+                                    {{ form_end(formAvatar) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-12">
+                                    <h3> {{ 'user.account.email.update'|trans }} </h3>
+                                    <hr>
+
+                                    {{ form_start(formEmail) }}
+                                        <div class="mb-3">
+                                            {{ form_row(formEmail.email, {
+                                                label: 'login.form.email.name',
+                                                attr: {
+                                                    'class': 'form-control',
+                                                    'placeholder': 'login.form.email.placeholder'
+                                                }
+                                            }) }}
+                                        </div>
+
+                                        <div class="d-grid mb-0 text-center">
+                                            <button class="btn btn-primary" type="submit">
+                                                <i class="mdi mdi-login"></i>
+                                                {{ 'save.btn'|trans }}
+                                            </button>
+                                        </div>
+                                    {{ form_end(formEmail) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-12">
+                                    <h3> {{ 'user.account.password.update'|trans }} </h3>
+                                    <hr>
+
+                                    {{ form_start(formPassword) }}
+
+                                    <div class="mb-3">
+                                        {{ form_row(formPassword.password, {
+                                            label: 'login.form.password.name',
+                                            attr: {
+                                                'class': 'form-control',
+                                                'placeholder': 'login.form.password.placeholder'
+                                            }
+                                        }) }}
+                                    </div>
+
+                                    <div class="mb-3">
+                                        {{ form_row(formPassword.passwordConfirmed.first, {
+                                            label: 'register.form.password.first.name',
+                                            attr: {
+                                                'class': 'form-control',
+                                                'placeholder': 'register.form.password.first.placeholder'
+                                            }
+                                        }) }}
+                                    </div>
+                                    <div class="mb-3">
+                                        {{ form_row(formPassword.passwordConfirmed.second, {
+                                            label: 'register.form.password.second.name',
+                                            attr: {
+                                                'class': 'form-control',
+                                                'placeholder': 'register.form.password.second.placeholder'
+                                            }
+                                        }) }}
+                                    </div>
+
+                                    <div class="d-grid mb-0 text-center">
+                                        <button class="btn btn-primary" type="submit">
+                                            <i class="mdi mdi-login"></i>
+                                            {{ 'save.btn'|trans }}
+                                        </button>
+                                    </div>
+                                    {{ form_end(formPassword) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
