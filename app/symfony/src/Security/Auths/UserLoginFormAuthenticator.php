@@ -70,7 +70,7 @@ class UserLoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
         $user = $token->getUser();
 
-        return new RedirectResponse($this->urlGenerator->generate('app_user_session'));
+        return new RedirectResponse($this->urlGenerator->generate('student_quiz'));
     }
 
     protected function getLoginUrl(Request $request): string

@@ -130,4 +130,38 @@ enum.region.Occitanie: Occitanie
 enum.region.Île-de-France: Île-de-France
 enum.region.Hauts-de-France: Hauts-de-France
 enum.region.Corse: Corse
+Types: Types
+teacher.menu.cours: 'Mes Cours'
+cours.title: 'Mes cours'
+btn.cours.new: 'Nouveau cours'
+session.title: Session
+form.cours.domaines: Domaines
+form.cours.name: Nom
+btn.delete: Supprimer
+video_formation.name: 'Contenu video'
+video_formation.content: Description
+video_formation.title: 'Titre de la video'
+btn.videosFormation: Enregistrer
+add.video.formation: 'Ajouter un cours vidéo'
+student.menu.cours: 'Mes Cours'
+'home.domaine.formation?': 'Dans quel domaine voulez-vous vous former ?'
+sites.slogan.nombres: 'Ressources formation, c''est plus de 25 centres de formation pour vous accompagner dans votre apprentissage'
+button.all.sites: ' Voir tous nos sites'
+formation.pleinTemps.horaire: ' À plein temps  -  9h 17h'
+teacher.menu.quiz: 'Mes quiz'
 option.choice.content: 'Créer un choix '
+app.message.flash.answer_removed: 'Votre choix à bien été rétirer.'
+app.message.flash.answer_not_add: 'La question a déjà un choix de reponse rélier.'
+app.message.flash.answer_add: 'Votre choix à bien été ajouter comme reponse valide.'
+student.menu.qcm: 'Ma session Quiz'
+session.quiz.title: 'Mes sessions de Quiz'
+session.quiz.reference: Référence
+session.quiz.qcm: QCM
+session.quiz.domaine: Domaine
+session.quiz.mark: 'Ma note'
+session.quiz.end: 'Quiz Terminer'
+quiz.start: Commencer
+btn.valide: Valider
+session.qcm.title: QCM
+session.quiz.theme: Theme
+session.quiz.quiz: Quiz

@@ -6,8 +6,9 @@ use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 
 class MessageService
 {
-    const TYPE_SUCCESS = "success";
-    const TYPE_ERROR = "error";
+    public const TYPE_SUCCESS = "success";
+    public const TYPE_ERROR = "error";
+    public const TYPE_WARNING = "warning";
 
     /**
      * @var FlashBagInterface
@@ -28,7 +29,7 @@ class MessageService
      */
     public function addSuccess(string $message)
     {
-        $this->flashBag->add(self::TYPE_SUCCESS, $message);
+        return $this->flashBag->add(self::TYPE_SUCCESS, $message);
     }
 
     /**
@@ -37,6 +38,15 @@ class MessageService
      */
     public function addError(string $message)
     {
-        $this->flashBag->add(self::TYPE_ERROR, $message);
+        return $this->flashBag->add(self::TYPE_ERROR, $message);
+    }
+
+    /**
+     * @param string $message
+     * @return mixed
+     */
+    public function addWarning(string $message)
+    {
+        return $this->flashBag->add(self::TYPE_WARNING, $message);
     }
 }

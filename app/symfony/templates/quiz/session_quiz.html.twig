@@ -1,0 +1,45 @@
+{% extends 'base_dashboard.html.twig' %}
+
+{% block title %}{{ 'session.quiz.title'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <h4 class="page-title">{{ 'session.quiz.title'|trans }}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-sm table-nowrap table-centered mb-0">
+            <thead class="bg-rf fa-2x">
+            <tr>
+                <th>{{ 'session.quiz.reference'|trans }}</th>
+                <th>{{ 'session.quiz.quiz'|trans }}</th>
+                <th>{{ 'session.quiz.theme'|trans }}</th>
+                <th>{{ 'session.quiz.mark'|trans }}</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for session in sessions %}
+                <tr>
+                    <td><h5 class="font-15 mb-1 fw-normal"><strong>{{ session.reference|upper }}</strong></h5></td>
+                    <td><h5 class="font-15 mb-1 fw-normal">{{ session.quiz.name }}</h5></td>
+                    <td><h5 class="font-15 mb-1 fw-normal">{{ session.quiz.theme.name }}</h5></td>
+                    <td><h5 class="font-15 mb-1 fw-normal"><span class="{{ colorMark(session.mark, session.point) }}">{{ session.mark }} / {{ session.point }}</span></h5></td>
+                    <td>
+                        {% if session.mark <= 0 %}
+                            <a class="btn btn-primary" href="{{ path('student_quiz_start', {'id': session.id}) }}"><i class="mdi mdi-grid-large"></i> {{ 'quiz.start'|trans }}</a>
+                        {% else %}
+                            <span class="btn btn-success"><i class="fa fa-check"></i> {{ 'session.quiz.end'|trans }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

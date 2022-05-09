@@ -1,0 +1,68 @@
+{% extends 'base_dashboard.html.twig' %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block body %}
+    <h1> Attribuer une session de quiz </h1>
+
+    <div class="card d-block">
+        <div class="card-header">
+            {{ form_start(form) }}
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    {{ form_row(form.quiz) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.user) }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-primary btn-block">{{ button_label|default('Valider') }}</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Participant</th>
+                        <th>Quiz</th>
+                        <th>Thème</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for session in sessions %}
+                    <tr>
+                        <th>{{ session.id }}</th>
+                        <th>{{ session.user }}</th>
+                        <th>{{ session.quiz }}</th>
+                        <th>{{ session.quiz.theme }}</th>
+                        <th>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a class="btn btn-primary" href="">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger" href="">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </th>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

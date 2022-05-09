@@ -1,16 +1,24 @@
 {% extends 'base_dashboard.html.twig' %}
 
-{% block title %}Quiz index{% endblock %}
+{% block title %}Quiz{% endblock %}
 
 {% block body %}
-    <a class="btn btn-primary" href="{{ path('app_quiz_new') }}">Nouveau Quiz</a>
+
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="page-title-box">
+                <a class="btn btn-primary" href="{{ path('app_quiz_new') }}">Nouveau Quiz</a>
+                <a class="btn btn-info" href="{{ path('app_quiz_attribute') }}">Attribuer un Quiz</a>
+            </div>
+        </div>
+    </div>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>actions</th>
+                <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
@@ -21,17 +29,15 @@
                     <td>
                         <a class="btn btn-primary" href="{{ path('app_quiz_show', {'id': quiz.id}) }}">
                             <i class="fa fa-eye"></i>
-                            show
                         </a>
                         <a class="btn btn-primary" href="{{ path('app_quiz_edit', {'id': quiz.id}) }}">
                             <i class="fa fa-pen"></i>
-                            edit
                         </a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="3">no records found</td>
+                    <td colspan="3">Vide</td>
                 </tr>
             {% endfor %}
         </tbody>

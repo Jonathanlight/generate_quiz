@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Answer;
+use App\Entity\OptionChoice;
+use App\Entity\Question;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
@@ -45,32 +47,40 @@ class AnswerRepository extends ServiceEntityRepository
         }
     }
 
-    // /**
-    //  * @return Answer[] Returns an array of Answer objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function getOptionChoose(OptionChoice $optionChoice, Question $question)
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Answer
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
+            ->leftJoin('a.optionChoice', 'opt')
+            ->leftJoin('opt.question', 'que')
+            ->andWhere('opt.id = :optionChoice')
+            ->andWhere('que.id = :question')
+            ->setParameter('optionChoice', $optionChoice)
+            ->setParameter('question', $question)
             ->getQuery()
             ->getOneOrNullResult()
-        ;
+            ;
     }
-    */
+
+    public function getOneByOptionChoose(OptionChoice $optionChoice)
+    {
+        return $this->createQueryBuilder('a')
+            ->leftJoin('a.optionChoice', 'opt')
+            ->andWhere('opt.id = :optionChoice')
+            ->setParameter('optionChoice', $optionChoice)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+
+    public function getOneByQuestion(Question $question)
+    {
+        return $this->createQueryBuilder('a')
+            ->leftJoin('a.optionChoice', 'opt')
+            ->leftJoin('opt.question', 'que')
+            ->andWhere('que.id = :question')
+            ->setParameter('question', $question)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
 }

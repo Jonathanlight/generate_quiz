@@ -53,11 +53,17 @@ class User implements UserInterface
      */
     private $sessions;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Session::class, mappedBy="teacher")
+     */
+    private $sessionTeacher;
+
     public function __construct()
     {
         $this->quizes = new ArrayCollection();
         $this->answerUsers = new ArrayCollection();
         $this->sessions = new ArrayCollection();
+        $this->sessionTeacher = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -154,6 +160,36 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($session->getUser() === $this) {
                 $session->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Session>
+     */
+    public function getSessionTeacher(): Collection
+    {
+        return $this->sessionTeacher;
+    }
+
+    public function addSessionTeacher(Session $sessionTeacher): self
+    {
+        if (!$this->sessionTeacher->contains($sessionTeacher)) {
+            $this->sessionTeacher[] = $sessionTeacher;
+            $sessionTeacher->setTeacher($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSessionTeacher(Session $sessionTeacher): self
+    {
+        if ($this->sessionTeacher->removeElement($sessionTeacher)) {
+            // set the owning side to null (unless already changed)
+            if ($sessionTeacher->getTeacher() === $this) {
+                $sessionTeacher->setTeacher(null);
             }
         }
 

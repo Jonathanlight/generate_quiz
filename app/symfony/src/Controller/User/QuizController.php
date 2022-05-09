@@ -4,11 +4,13 @@ namespace App\Controller\User;
 
 use App\Entity\Question;
 use App\Entity\Quiz;
+use App\Entity\Session;
 use App\Form\QuestionType;
 use App\Form\QuizType;
+use App\Form\SessionType;
 use App\Manager\QuestionManager;
 use App\Manager\QuizManager;
-use App\Repository\QuizRepository;
+use App\Manager\SessionManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,6 +28,28 @@ class QuizController extends AbstractController
     {
         return $this->render('quiz/index.html.twig', [
             'quizzes' => $quizManager->getQuizs(),
+        ]);
+    }
+
+    /**
+     * @Route("/attribute", name="app_quiz_attribute", methods={"GET", "POST"})
+     */
+    public function attribute_quiz(Request $request, SessionManager $sessionManager): Response
+    {
+        $teacher = $this->getUser();
+        $session = new Session();
+        $session->setTeacher($teacher);
+        $form = $this->createForm(SessionType::class, $session);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $sessionManager->new($session);
+            return $this->redirectToRoute('app_quiz_attribute');
+        }
+
+        return $this->render('quiz/attribute_quiz.html.twig', [
+            'sessions' => $sessionManager->getSessionsByTeacher($teacher),
+            'form' => $form->createView(),
         ]);
     }
 

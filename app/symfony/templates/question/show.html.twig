@@ -29,18 +29,35 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for choice in choices %}
-                            <tr>
-                                <td><i class="fa fa-question btn btn-secondary"></i> {{ choice.content|capitalize }}</td>
-                                <td>
-                                    <div>
-                                        <a href="{{ path('app_option_choice_delete', {'id': choice.id}) }}">
-                                            <span class="btn btn-danger">Supprimer</span>
+                    {% for choice in choices %}
+                        {% set choose = false %}
+                        <tr>
+                            <td><i class="fa fa-question btn btn-secondary"></i> {{ choice.content|capitalize }}</td>
+                            <td>
+                                <div>
+                                    {% set answerChoose = answerByOptionChoice(choice, choice.question) %}
+
+                                    {% if answerChoose is not null %}
+                                        {% set choose = true %}
+                                    {% endif %}
+
+                                    {% if choose == false %}
+                                        <a href="{{ path('app_answer_answer', {'id': choice.id}) }}">
+                                            <span class="btn btn-dark btn-block">Choix</span>
                                         </a>
-                                    </div>
-                                </td>
-                            </tr>
-                        {% endfor %}
+                                    {% else %}
+                                        <a href="{{ path('app_answer_cancel_answer', {'id': choice.id}) }}">
+                                            <span class="btn btn-success btn-block">Choix valider</span>
+                                        </a>
+                                    {% endif %}
+
+                                    <a href="{{ path('app_option_choice_delete', {'id': choice.id}) }}">
+                                        <span class="btn btn-danger btn-block">Supprimer</span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>

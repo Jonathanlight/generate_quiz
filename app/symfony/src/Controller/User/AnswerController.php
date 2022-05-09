@@ -3,7 +3,9 @@
 namespace App\Controller\User;
 
 use App\Entity\Answer;
+use App\Entity\OptionChoice;
 use App\Form\AnswerType;
+use App\Manager\AnswerManager;
 use App\Repository\AnswerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -84,5 +86,25 @@ class AnswerController extends AbstractController
         }
 
         return $this->redirectToRoute('app_answer_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    /**
+     * @Route("/done_answer/{id}", name="app_answer_answer", methods={"GET", "POST"})
+     */
+    public function answer(Request $request, OptionChoice $optionChoice, AnswerManager $answerManager): Response
+    {
+        $answerManager->checkOptionChoose($optionChoice);
+
+        return $this->redirectToRoute('app_question_show', ['id' => $optionChoice->getQuestion()->getId()]);
+    }
+
+    /**
+     * @Route("/cancel_answer/{id}", name="app_answer_cancel_answer", methods={"GET", "POST"})
+     */
+    public function cancel_answer(Request $request, OptionChoice $optionChoice, AnswerManager $answerManager): Response
+    {
+        $answerManager->checkOptionChoose($optionChoice);
+
+        return $this->redirectToRoute('app_question_show', ['id' => $optionChoice->getQuestion()->getId()]);
     }
 }

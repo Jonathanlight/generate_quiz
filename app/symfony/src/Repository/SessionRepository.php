@@ -2,7 +2,9 @@
 
 namespace App\Repository;
 
+use App\Entity\Quiz;
 use App\Entity\Session;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
@@ -45,32 +47,15 @@ class SessionRepository extends ServiceEntityRepository
         }
     }
 
-    // /**
-    //  * @return Session[] Returns an array of Session objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function checkSessionIsAttribute(User $user, Quiz $quiz)
     {
         return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('s.user = :user')
+            ->andWhere('s.quiz = :quiz')
+            ->setParameter('user', $user)
+            ->setParameter('quiz', $quiz)
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Session
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

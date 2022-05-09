@@ -54,6 +54,11 @@ class Session
      */
     private $answerUsers;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="sessionTeacher")
+     */
+    private $teacher;
+
     public function __construct()
     {
         $this->answerUsers = new ArrayCollection();
@@ -162,6 +167,18 @@ class Session
                 $answerUser->setSession(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTeacher(): ?User
+    {
+        return $this->teacher;
+    }
+
+    public function setTeacher(?User $teacher): self
+    {
+        $this->teacher = $teacher;
 
         return $this;
     }

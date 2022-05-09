@@ -18,6 +18,11 @@ class AnswerUser
     private $id;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $response;
+
+    /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="answerUsers")
      */
     private $user;
@@ -86,6 +91,18 @@ class AnswerUser
     public function setSession(?Session $session): self
     {
         $this->session = $session;
+
+        return $this;
+    }
+
+    public function getResponse(): ?bool
+    {
+        return $this->response;
+    }
+
+    public function setResponse(bool $response): self
+    {
+        $this->response = $response;
 
         return $this;
     }
